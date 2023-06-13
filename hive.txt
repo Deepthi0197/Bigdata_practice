@@ -1,3 +1,4 @@
+# drop database and table if already exists
 drop database if exists gd_sample_project
 drop table if exists clothing
 
