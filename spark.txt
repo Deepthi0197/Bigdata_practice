@@ -1,3 +1,5 @@
+
+# Replacing all null values to N/A
 spark.sql("SELECT * FROM gd_sample_project.clothing")
 from pyspark.sql.functions import col, when
 df_num = df_num = df.select(
@@ -11,6 +13,7 @@ df_num = df_num = df.select(
     when(col("Original_Price").isNull() | (col("Original_Price") == ""), "N/A").otherwise(col("Original_Price")).alias("Original_Price"),
     when(col("Color").isNull() | (col("Color") == ""), "N/A").otherwise(col("Color")).alias("Color")
 )        
-        
+
+
+# Writing the file in parquet format        
 df_num.write.mode("overwrite").parquet("/user/bigdatacloudxlab27228/gd_clothing_parq")
-df_num.write.csv("/user/bigdatacloudxlab27228/gd_clothing_csv")
