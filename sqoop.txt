@@ -1,3 +1,4 @@
+#Exporting from HDFS to SQL server
 sqoop export \
 --connect jdbc:mysql://cxln2:3306/sqoopex \
 --username 'sqoopuser' \
